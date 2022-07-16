@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  </body>
+  <script src="./lib/pusher.js" charset="utf-8">
+
+
+  </script>
+  <script type="text/javascript">
+    var pusher = new Pusher("localhost", 8080)
+    pusher.websocket.addEventListener("open", () => {
+      var channel = pusher.subscribe("test")
+      channel.bind("test-event", (event) => {
+        console.log(event)
+      });
+    })
+
+  </script>
+</html>
